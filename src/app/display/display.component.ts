@@ -1,18 +1,30 @@
 import { Component, OnInit } from '@angular/core';
+import { NumberService } from '../../app/number.service'
+import { Calculation} from '../Calculation';
+import { Calculations } from '../Calculations';
+import { ChildActivationEnd } from '@angular/router';
 @Component({
   selector: 'app-display',
   templateUrl: './display.component.html',
   styleUrls: ['./display.component.css']
 })
 export class DisplayComponent implements OnInit {
-
+CalcOne: Calculation;
 display: string = "";
 numOne: number = 0;
 numTwo: number = 0;
 operator: string = "";
-  constructor() { }
+Nid:number = 0;
+calculations=Calculations;
+  constructor(private NumberService: NumberService) { }
 
   ngOnInit() {
+    this.getCalculations();
+  }
+  getCalculations(){
+    this.NumberService.getCalculations()
+     .subscribe(display => this.calculations = display);
+       console.log(this.calculations[this.Nid]);
   }
   one(){if(this.operator === "="){ this.display = ""; this.operator = "";}
   this.display=this.display+("1")}
@@ -96,8 +108,29 @@ operator: string = "";
       this.numTwo = +this.display;
       this.equal();
       this.numOne = +this.display;
+      this.CalcOne = new Calculation();
+      this.CalcOne.Hash = this.numOne;
+      this.CalcOne.id = this.Nid;
+      this.calculations.push(this.CalcOne);
       this.operator = "="; this.numTwo = 0;
 
      
     }
+  next(){
+    if(this.calculations.length-1 > this.Nid){ 
+    this.Nid++;
+    this.numOne = +this.calculations[this.Nid].Hash.toString(); 
+    this.display = this.calculations[this.Nid].Hash.toString(); 
+  }else{}
+}
+  previous(){
+    if(this.Nid=== 0){
+      this.Nid = 0;
+    }
+    else{
+      this.Nid--;
+      this.numOne = +this.calculations[this.Nid].Hash.toString(); 
+      this.display = this.calculations[this.Nid].Hash.toString();
+    }
+  }
 }

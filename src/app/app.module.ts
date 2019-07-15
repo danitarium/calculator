@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DisplayComponent } from './display/display.component';
-
+import { NumberService } from './number.service'
 @NgModule({
   declarations: [
     AppComponent,
@@ -14,7 +14,7 @@ import { DisplayComponent } from './display/display.component';
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [NumberService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
