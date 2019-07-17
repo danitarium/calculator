@@ -23,7 +23,7 @@ calculations=Calculations;
   }
   getCalculations(){
     this.NumberService.getCalculations()
-     .subscribe(display => this.calculations = display);
+     .subscribe(display => this.display = display);
        console.log(this.calculations[this.Nid]);
   }
   one(){if(this.operator === "="){ this.display = ""; this.operator = "";}
@@ -113,7 +113,7 @@ calculations=Calculations;
       this.CalcOne.id = this.Nid;
       this.calculations.push(this.CalcOne);
       this.operator = "="; this.numTwo = 0;
-
+      this.getCalculations();
      
     }
   next(){
