@@ -10,8 +10,8 @@ import { Calc  } from './interface'
 export class NumberService {
   private url = 'http://localhost:3000/';
   constructor(private httpClient: HttpClient) { }
-  addTodo(newCalc: any) {
-    return this.httpClient.post(this.url, newCalc,{responseType: 'text'});
+  addTodo(newCalc: Calculation) {
+    return this.httpClient.post(this.url, newCalc);
   }
   getCalculations() {
     return this.httpClient.get(this.url,{responseType: 'text'});

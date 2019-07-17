@@ -3,6 +3,7 @@ import { NumberService } from '../../app/number.service'
 import { Calculation} from '../Calculation';
 import { Calculations } from '../Calculations';
 import { ChildActivationEnd } from '@angular/router';
+
 @Component({
   selector: 'app-display',
   templateUrl: './display.component.html',
@@ -15,6 +16,7 @@ numOne: number = 0;
 numTwo: number = 0;
 operator: string = "";
 Nid:number = 0;
+NidMax: number = 0;
 calculations=Calculations;
   constructor(private NumberService: NumberService) { }
 
@@ -23,8 +25,12 @@ calculations=Calculations;
   }
   getCalculations(){
     this.NumberService.getCalculations()
-     .subscribe(display => this.display = display);
+     .subscribe(calculations => this.calculations[this.Nid])
        console.log(this.calculations[this.Nid]);
+  }
+  addTodo(){
+    this.NumberService.addTodo(this.CalcOne)
+    .subscribe(() => this.calculations[this.Nid])
   }
   one(){if(this.operator === "="){ this.display = ""; this.operator = "";}
   this.display=this.display+("1")}
@@ -105,12 +111,13 @@ calculations=Calculations;
             }
     }
     equals(){
+      this.NidMax++;
       this.numTwo = +this.display;
       this.equal();
       this.numOne = +this.display;
       this.CalcOne = new Calculation();
       this.CalcOne.Hash = this.numOne;
-      this.CalcOne.id = this.Nid;
+      this.CalcOne.id = this.NidMax;
       this.calculations.push(this.CalcOne);
       this.operator = "="; this.numTwo = 0;
       this.getCalculations();
@@ -121,6 +128,7 @@ calculations=Calculations;
     this.Nid++;
     this.numOne = +this.calculations[this.Nid].Hash.toString(); 
     this.display = this.calculations[this.Nid].Hash.toString(); 
+    this.getCalculations();
   }else{}
 }
   previous(){
@@ -131,6 +139,7 @@ calculations=Calculations;
       this.Nid--;
       this.numOne = +this.calculations[this.Nid].Hash.toString(); 
       this.display = this.calculations[this.Nid].Hash.toString();
+      this.getCalculations();
     }
   }
 }
