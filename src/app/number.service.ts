@@ -16,7 +16,7 @@ export class NumberService {
   getCalculations() {
     return this.httpClient.get(this.url,{responseType: 'text'});
   }
-  getCalculation(id){
-    return this.httpClient.get(this.url + '/'+ id.toString);
+  getCalculation(newCalc: Calculation):Observable<Calculation>{
+    return of(Calculations[Calculations.length-1]);
   }
 }

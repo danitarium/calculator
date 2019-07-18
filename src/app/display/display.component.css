@@ -1,18 +1,31 @@
 p{
-width:235px;
 border: 1px;
+font-size: 24px;
+font-family: Lucida;
 border-style: double;
-margin: center;
+margin: auto;
+width:330px;
+height:24px;
 }
 button{
-width: 50px;
-border: 5px solid gray;
+width: 75px;
+height:75px;
+font-size: 24px;
 margin: auto; 
+flex-flow: row wrap;
+align-content: space-between;
 
 }
 div{
-    width:205px;
+    flex-flow: row wrap;
+    width: 310px;
     padding: 10px;
-    border: 5px solid gray;
-    margin: 0; 
+    border: 5px solid orange;
+    background: orange;
+    margin: auto;
+}
+body,html{
+    background:orange;
+    height: 100%;
+    margin: auto;
 }
