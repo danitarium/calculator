@@ -1,3 +1,18 @@
-.p{
+p{
+width:235px;
 border: 1px;
+border-style: double;
+margin: center;
+}
+button{
+width: 50px;
+border: 5px solid gray;
+margin: auto; 
+
+}
+div{
+    width:205px;
+    padding: 10px;
+    border: 5px solid gray;
+    margin: 0; 
 }

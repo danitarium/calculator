@@ -17,7 +17,9 @@ numTwo: number = 0;
 operator: string = "";
 Nid:number = 0;
 NidMax: number = 0;
-calculations=Calculations;
+tmp:number = 0;
+dec: boolean = false; 
+calculations = Calculations;
   constructor(private NumberService: NumberService) { }
 
   ngOnInit() {
@@ -62,14 +64,21 @@ calculations=Calculations;
   zero(){if(this.operator === "="){ this.display = "";this.operator = "";}
   if(this.display === ""){ return "";}
     this.display=this.display+("0")}
+  decimal(){if(this.operator === "="){ this.display = "";this.operator = "";}
+  if(this.display === ""){ return "0.";}
+  if(this.dec === false){ 
+    this.display=this.display+(".");
+    this.dec = true;
+  }else{
+  }
+}
+  plus(){this.operator = "+";this.numOne = +this.display;this.display = ""; this.dec = false;}
   
-  plus(){this.operator = "+";this.numOne = +this.display;this.display = ""; }
-  
-  minus(){this.operator = "-";this.numOne = +this.display;this.display = "";}
+  minus(){this.operator = "-";this.numOne = +this.display;this.display = "";this.dec = false;}
 
-  multiply(){this.operator = "*";this.numOne = +this.display;this.display = "";}
+  multiply(){this.operator = "*";this.numOne = +this.display;this.display = "";this.dec = false;}
   
-  divide(){this.operator = "/";this.numOne = +this.display;this.display = "";}
+  divide(){this.operator = "/";this.numOne = +this.display;this.display = "";this.dec = false;}
   
   add(){
     if(this.operator  === "+"){
@@ -120,6 +129,7 @@ calculations=Calculations;
       this.CalcOne.id = this.NidMax;
       this.calculations.push(this.CalcOne);
       this.operator = "="; this.numTwo = 0;
+      this.dec = false;
       this.getCalculations();
      
     }
@@ -142,4 +152,45 @@ calculations=Calculations;
       this.getCalculations();
     }
   }
+  sqrt(){
+    this.NidMax++;
+    this.numOne = +this.display;
+    this.numOne = Math.sqrt(this.numOne);
+    this.CalcOne = new Calculation();
+      this.CalcOne.Hash = this.numOne;
+      this.CalcOne.id = this.NidMax;
+      this.calculations.push(this.CalcOne);
+      this.operator = "="; this.numTwo = 0;
+      this.display = this.calculations[this.NidMax].Hash.toString();
+      this.getCalculations();
+  }
+  factorial(){
+    this.NidMax++;
+    this.numOne = +this.display;
+    this.numTwo = this.numOne;
+    this.numOne = 0;
+    this.tmp =1;
+    if (this.numTwo === 0){
+      this.CalcOne = new Calculation();
+      this.CalcOne.Hash = this.tmp;
+      this.CalcOne.id = this.NidMax;
+      this.calculations.push(this.CalcOne);
+      this.display = this.calculations[this.NidMax].Hash.toString();
+      this.getCalculations(); 
+      return;
+    }
+    while(this.numOne <= this.numTwo){
+      this.tmp = this.tmp * this.numTwo;
+      this.numTwo--;
+      if(this.numOne === this.numTwo){
+      this.CalcOne = new Calculation();
+      this.CalcOne.Hash = this.tmp;
+      this.CalcOne.id = this.NidMax;
+      this.calculations.push(this.CalcOne);
+      this.display = this.calculations[this.NidMax].Hash.toString();
+      this.getCalculations(); 
+      }
+    }
+  }
 }
+
