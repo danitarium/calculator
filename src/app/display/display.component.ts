@@ -3,9 +3,53 @@ import { NumberService } from '../../app/number.service'
 import { Calculation} from '../Calculation';
 import { Calculations } from '../Calculations';
 import { ChildActivationEnd } from '@angular/router';
-
+import {
+  trigger,
+  state,
+  style,
+  animate,
+  transition,
+  // ...
+} from '@angular/animations';
 @Component({
   selector: 'app-display',
+    animations: [
+      trigger('openClose', [
+        state('open', style({
+          opacity: 1,
+          
+        })),
+        state('closed', style({
+
+          opacity: 1,
+          backgroundImage: 'linear-gradient(yellow,green,red)'
+        })),
+        transition('open => closed', [
+          animate('1s')
+        ]),
+        transition('closed => open', [
+          animate('0.5s')
+        ]),
+      ]),
+      trigger('Love', [
+        state('open', style({
+          opacity: 1,
+          
+        })),
+        state('closed', style({
+
+          opacity: 1,
+          color: 'pink',
+          backgroundColor: 'Black'
+        })),
+        transition('open => closed', [
+          animate('1s')
+        ]),
+        transition('closed => open', [
+          animate('0.5s')
+        ]),
+      ]),
+    ],
   templateUrl: './display.component.html',
   styleUrls: ['./display.component.css']
 })
@@ -18,7 +62,9 @@ operator: string = "";
 Nid:number = 0;
 NidMax: number = 0;
 tmp:number = 0;
-dec: boolean = false; 
+dec: boolean = false;
+Rasta: boolean = true;
+Love: boolean = true;  
 calculations = Calculations;
   constructor(private NumberService: NumberService) { }
 
@@ -26,6 +72,18 @@ calculations = Calculations;
     this.getCalculations();
   }
   getCalculations(){
+    if(this.display === "420"){
+      this.Rasta = false;
+    }
+    else{
+      this.Rasta = true;
+    }
+    if(this.display === "69"){
+      this.Love = false;
+    }
+    else{
+      this.Love = true;
+    }
     this.NumberService.getCalculations()
      .subscribe(calculations => this.calculations[this.Nid])
        console.log(this.calculations[this.Nid]);
