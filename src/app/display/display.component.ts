@@ -137,7 +137,7 @@ calculations = Calculations;
   multiply(){this.operator = "*";this.numOne = +this.display;this.display = "";this.dec = false;}
   
   divide(){this.operator = "/";this.numOne = +this.display;this.display = "";this.dec = false;}
-  
+  XY(){this.operator = "XY";this.numOne = +this.display;this.display = "";this.dec = false;}
   add(){
     if(this.operator  === "+"){
     var num = (this.numOne + this.numTwo);
@@ -176,6 +176,9 @@ calculations = Calculations;
           else if(this.operator  === "*"){
             this.mult();
             }
+            else if(this.operator  === "XY"){
+              this.Xy();
+              }
     }
     equals(){
       this.NidMax++;
@@ -249,6 +252,43 @@ calculations = Calculations;
       this.getCalculations(); 
       }
     }
+  }
+  AC(){
+    this.display = "";this.operator = "";this.numOne = 0;
+    this.numTwo = 0;
+    this.dec = false;
+  }
+  Clear(){
+    if(this.operator !== "" && this.display !== ""){
+      this.display = ""; this.dec = false;
+    }
+    else if (this.numOne != 0){
+    this.AC();
+    }
+  }
+  Xy(){
+    if(this.operator  === "XY"){
+    this.tmp = this.numTwo;
+    let num = this.numOne;
+    while(this.tmp >1 ){
+      this.tmp--;
+      this.numOne = num * this.numOne;
+    }
+    num = this.numOne;
+    this.display = num.toString();
+    } 
+  }
+  Log(){
+    this.NidMax++;
+    this.numOne = +this.display;
+    this.numOne = Math.log(this.numOne);
+    this.CalcOne = new Calculation();
+      this.CalcOne.Hash = this.numOne;
+      this.CalcOne.id = this.NidMax;
+      this.calculations.push(this.CalcOne);
+      this.operator = "="; this.numTwo = 0;
+      this.display = this.calculations[this.NidMax].Hash.toString();
+      this.getCalculations();
   }
 }
 
