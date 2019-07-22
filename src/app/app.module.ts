@@ -6,10 +6,12 @@ import { AppComponent } from './app.component';
 import { DisplayComponent } from './display/display.component';
 import { NumberService } from './number.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { D3Component } from './d3/d3.component';
 @NgModule({
   declarations: [
     AppComponent,
-    DisplayComponent
+    DisplayComponent,
+    D3Component
   ],
   imports: [
     BrowserModule,
