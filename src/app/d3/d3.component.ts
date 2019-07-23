@@ -79,13 +79,13 @@ export class D3Component implements OnInit {
       this.getCalculations();
     }
     getCalculations(){
-      if(this.display === "420"){
+      if(this.display === "420" || this.display === "311"){
         this.Rasta = false;
       }
       else{
         this.Rasta = true;
       }
-      if(this.display === "69"){
+      if(this.display === "69" || this.display === "8008"){
         this.Love = false;
       }
       else{
@@ -320,6 +320,7 @@ this.display = this.stackOper.pop();
 
 Test(){
   this.display = "((15/(7-(1+1)))*3)-(2+(1+1))";
+  this.counter++;
 }
   next(){
     if(this.calculations.length-1 > this.Nid){ 
