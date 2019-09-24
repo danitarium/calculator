@@ -278,7 +278,7 @@ calculations = Calculations;
     this.display = num.toString();
     } 
   }
-  Log(){
+  Ln(){
     this.NidMax++;
     this.numOne = +this.display;
     this.numOne = Math.log(this.numOne);
