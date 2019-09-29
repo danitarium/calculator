@@ -309,11 +309,10 @@ for(let i = 0;  i <= this.stackVal2.length; i++){
 }
 }
 this.display = this.stackOper.pop();
-  this.display = this.tmp.toString();
       this.stackVal2 = [];
       this.stackVal= [];     
       this.stackOper =[];
-      this.saveCalc(this.tmp);
+      this.saveCalc(+this.display);
    
     }
 //Driver program to test above functions 
