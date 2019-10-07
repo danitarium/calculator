@@ -142,46 +142,56 @@ export class D3Component implements OnInit {
     }else{
     }
   }
-  plus(){if(this.operator === "=")
+  plus(){if(this.operator === "="){return}
     if(this.display[this.display.length-1] === "+"){return}
     if(this.display[this.display.length-1] === "-"){return}
     if(this.display[this.display.length-1] === "*"){return}
     if(this.display[this.display.length-1] === "/"){return}
     if(this.display[this.display.length-1] === "("){return}
+    else{
     this.display=this.display+("+");this.counter++;this.dec=false;
+    }
 }
-  minus(){if(this.operator === "=")
+  minus(){if(this.operator === "="){return}
    if(this.display[this.display.length-1] === "+"){return}
     if(this.display[this.display.length-1] === "-"){return}
     if(this.display[this.display.length-1] === "*"){return}
     if(this.display[this.display.length-1] === "/"){return}
     if(this.display[this.display.length-1] === "("){return}
+    else{
   this.display=this.display+("-");this.counter++;this.dec=false;
+    }
 }
-  multiply(){if(this.operator === "=")
+  multiply(){if(this.operator === "="){return}
   if(this.display[this.display.length-1] === "+"){return}
   if(this.display[this.display.length-1] === "-"){return}
   if(this.display[this.display.length-1] === "*"){return}
   if(this.display[this.display.length-1] === "/"){return}
   if(this.display[this.display.length-1] === "("){return}
+  else{
   this.display=this.display+("*");this.counter++;this.dec=false;
+  }
 }
-  divide(){if(this.operator === "=")
+  divide(){if(this.operator === "="){return}
   if(this.display[this.display.length-1] === "+"){return}
   if(this.display[this.display.length-1] === "-"){return}
   if(this.display[this.display.length-1] === "*"){return}
   if(this.display[this.display.length-1] === "/"){return}
   if(this.display[this.display.length-1] === "("){return}
+  else{
   this.display=this.display+("/");this.counter++;this.dec=false;
+  }
 }
   XY(){
-    if(this.operator === "=")
+    if(this.operator === "="){return}
     if(this.display[this.display.length-1] === "+"){return}
     if(this.display[this.display.length-1] === "-"){return}
     if(this.display[this.display.length-1] === "*"){return}
     if(this.display[this.display.length-1] === "/"){return}
     if(this.display[this.display.length-1] === "("){return}
-    this.display=this.display+("^");this.counter++;this.dec=false;
+    else{
+      this.display=this.display+("^");this.counter++;this.dec=false;
+    }
 }
   add(){  
     var num = (this.numOne + this.numTwo);
