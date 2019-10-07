@@ -139,7 +139,6 @@ export class D3Component implements OnInit {
     if(this.dec === false){ 
       this.display=this.display+(".");
       this.dec = true;
-    }else{
     }
   }
   plus(){if(this.operator === "="){return}
