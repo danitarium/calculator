@@ -141,7 +141,7 @@ export class D3Component implements OnInit {
       this.dec = true;
     }
   }
-  plus(){if(this.operator === "="){return}
+  plus(){if(this.operator === "=")
     if(this.display[this.display.length-1] === "+"){return}
     if(this.display[this.display.length-1] === "-"){return}
     if(this.display[this.display.length-1] === "*"){return}
@@ -151,7 +151,7 @@ export class D3Component implements OnInit {
     this.display=this.display+("+");this.counter++;this.dec=false;
     }
 }
-  minus(){if(this.operator === "="){return}
+  minus(){if(this.operator === "=")
    if(this.display[this.display.length-1] === "+"){return}
     if(this.display[this.display.length-1] === "-"){return}
     if(this.display[this.display.length-1] === "*"){return}
@@ -161,7 +161,7 @@ export class D3Component implements OnInit {
   this.display=this.display+("-");this.counter++;this.dec=false;
     }
 }
-  multiply(){if(this.operator === "="){return}
+  multiply(){if(this.operator === "=")
   if(this.display[this.display.length-1] === "+"){return}
   if(this.display[this.display.length-1] === "-"){return}
   if(this.display[this.display.length-1] === "*"){return}
@@ -171,7 +171,7 @@ export class D3Component implements OnInit {
   this.display=this.display+("*");this.counter++;this.dec=false;
   }
 }
-  divide(){if(this.operator === "="){return}
+  divide(){if(this.operator === "=")
   if(this.display[this.display.length-1] === "+"){return}
   if(this.display[this.display.length-1] === "-"){return}
   if(this.display[this.display.length-1] === "*"){return}
@@ -182,7 +182,7 @@ export class D3Component implements OnInit {
   }
 }
   XY(){
-    if(this.operator === "="){return}
+    if(this.operator === "=")
     if(this.display[this.display.length-1] === "+"){return}
     if(this.display[this.display.length-1] === "-"){return}
     if(this.display[this.display.length-1] === "*"){return}
