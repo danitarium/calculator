@@ -138,6 +138,7 @@ export class D3Component implements OnInit {
     if(this.display === ""){ return "0.";}
     if(this.dec === false){ 
       this.display=this.display+(".");
+      this.dec = true;
     }else{
     }
   }
@@ -147,7 +148,7 @@ export class D3Component implements OnInit {
     if(this.display[this.display.length-1] === "*"){return}
     if(this.display[this.display.length-1] === "/"){return}
     if(this.display[this.display.length-1] === "("){return}
-    this.display=this.display+("+");this.counter++;
+    this.display=this.display+("+");this.counter++;this.dec=false;
 }
   minus(){if(this.operator === "=")
    if(this.display[this.display.length-1] === "+"){return}
@@ -155,7 +156,7 @@ export class D3Component implements OnInit {
     if(this.display[this.display.length-1] === "*"){return}
     if(this.display[this.display.length-1] === "/"){return}
     if(this.display[this.display.length-1] === "("){return}
-  this.display=this.display+("-");this.counter++;
+  this.display=this.display+("-");this.counter++;this.dec=false;
 }
   multiply(){if(this.operator === "=")
   if(this.display[this.display.length-1] === "+"){return}
@@ -163,7 +164,7 @@ export class D3Component implements OnInit {
   if(this.display[this.display.length-1] === "*"){return}
   if(this.display[this.display.length-1] === "/"){return}
   if(this.display[this.display.length-1] === "("){return}
-  this.display=this.display+("*");this.counter++;
+  this.display=this.display+("*");this.counter++;this.dec=false;
 }
   divide(){if(this.operator === "=")
   if(this.display[this.display.length-1] === "+"){return}
@@ -171,7 +172,7 @@ export class D3Component implements OnInit {
   if(this.display[this.display.length-1] === "*"){return}
   if(this.display[this.display.length-1] === "/"){return}
   if(this.display[this.display.length-1] === "("){return}
-  this.display=this.display+("/");this.counter++;
+  this.display=this.display+("/");this.counter++;this.dec=false;
 }
   XY(){
     if(this.operator === "=")
@@ -180,7 +181,7 @@ export class D3Component implements OnInit {
     if(this.display[this.display.length-1] === "*"){return}
     if(this.display[this.display.length-1] === "/"){return}
     if(this.display[this.display.length-1] === "("){return}
-    this.display=this.display+("^");this.counter++;
+    this.display=this.display+("^");this.counter++;this.dec=false;
 }
   add(){  
     var num = (this.numOne + this.numTwo);
