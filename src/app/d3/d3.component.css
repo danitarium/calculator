@@ -1,7 +1,7 @@
-p{
+p{  
+    font-family: 'VT323', monospace;
     border: 1px;
-    font-size: 24px;
-    font-family: Lucida;
+    font-size: 25px;
     border-style: double;
     margin: auto;
     width:330px;

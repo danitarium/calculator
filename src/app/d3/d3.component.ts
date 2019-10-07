@@ -31,6 +31,48 @@ import { stack } from 'd3';
         animate('0.5s')
       ]),
     ]),
+    trigger('hell', [
+      state('open', style({
+        opacity: 1,
+        
+      })),
+      state('closed', style({
+
+        opacity: 1,
+        backgroundImage: 'linear-gradient(orange,red,black)'
+      })),
+      transition('open => closed', [
+        animate('1s')
+      ]),
+      transition('closed => open', [
+        animate('0.5s')
+      ]),
+    ]),
+    trigger('hell2', [
+      state('open', style({
+        opacity: 1,
+        
+      })),
+      state('close', style({
+
+        opacity: 1,
+        backgroundImage: 'linear-gradient(orange,black,red)'
+      })),
+      state('closed', style({
+
+        opacity: 1,
+        backgroundImage: 'linear-gradient(orange,red,black)'
+      })),
+      transition('open => close', [
+        animate('1s')
+      ]),
+      transition('close => closed', [
+        animate('1s')
+      ]),
+      transition('closed => open', [
+        animate('0.5s')
+      ]),
+    ]),
     trigger('Love', [
       state('open', style({
         opacity: 1,
@@ -71,7 +113,9 @@ export class D3Component implements OnInit {
   tmp:number = 0;
   dec: boolean = false;
   Rasta: boolean = true;
-  Love: boolean = true;  
+  Love: boolean = true; 
+  Hell: boolean = true; 
+  Hell2: boolean = true;  
   calculations = Calculations;
     constructor(private NumberService: NumberService) { }
   
@@ -85,7 +129,15 @@ export class D3Component implements OnInit {
       else{
         this.Rasta = true;
       }
-      if(this.display === "69" || this.display === "8008"){
+      if(this.display === "666" || this.display === "1134"){
+        this.Hell = false;
+        this.Hell2 = false;
+      }
+      else{
+        this.Hell = true;
+        this.Hell2 = true;
+      }
+      if(this.display === "69" || this.display === "8008" || this.display === "80085"){
         this.Love = false;
       }
       else{
