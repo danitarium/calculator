@@ -8,7 +8,7 @@ import { Calc  } from './interface'
   providedIn: 'root'
 })
 export class NumberService {
-  private url = 'http://localhost:3000/';
+  private url = 'http://localhost:4200/';
   constructor(private httpClient: HttpClient) { }
   addTodo(newCalc: Calculation) {
     return this.httpClient.post(this.url, newCalc);

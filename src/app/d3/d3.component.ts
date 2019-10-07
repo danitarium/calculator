@@ -147,9 +147,9 @@ export class D3Component implements OnInit {
     if(this.display[this.display.length-1] === "*"){return}
     if(this.display[this.display.length-1] === "/"){return}
     if(this.display[this.display.length-1] === "("){return}
-    else{
+
     this.display=this.display+("+");this.counter++;this.dec=false;
-    }
+    
 }
   minus(){if(this.operator === "=")
    if(this.display[this.display.length-1] === "+"){return}
@@ -157,9 +157,9 @@ export class D3Component implements OnInit {
     if(this.display[this.display.length-1] === "*"){return}
     if(this.display[this.display.length-1] === "/"){return}
     if(this.display[this.display.length-1] === "("){return}
-    else{
+
   this.display=this.display+("-");this.counter++;this.dec=false;
-    }
+
 }
   multiply(){if(this.operator === "=")
   if(this.display[this.display.length-1] === "+"){return}
@@ -167,9 +167,8 @@ export class D3Component implements OnInit {
   if(this.display[this.display.length-1] === "*"){return}
   if(this.display[this.display.length-1] === "/"){return}
   if(this.display[this.display.length-1] === "("){return}
-  else{
   this.display=this.display+("*");this.counter++;this.dec=false;
-  }
+
 }
   divide(){if(this.operator === "=")
   if(this.display[this.display.length-1] === "+"){return}
@@ -177,9 +176,8 @@ export class D3Component implements OnInit {
   if(this.display[this.display.length-1] === "*"){return}
   if(this.display[this.display.length-1] === "/"){return}
   if(this.display[this.display.length-1] === "("){return}
-  else{
   this.display=this.display+("/");this.counter++;this.dec=false;
-  }
+
 }
   XY(){
     if(this.operator === "=")
@@ -188,9 +186,9 @@ export class D3Component implements OnInit {
     if(this.display[this.display.length-1] === "*"){return}
     if(this.display[this.display.length-1] === "/"){return}
     if(this.display[this.display.length-1] === "("){return}
-    else{
+
       this.display=this.display+("^");this.counter++;this.dec=false;
-    }
+
 }
   add(){  
     var num = (this.numOne + this.numTwo);
@@ -209,6 +207,7 @@ export class D3Component implements OnInit {
       return num;
     }
     equal(operator){
+      this.dec = false;
       if(operator  === "-"){
       return this.sub();
       }
@@ -249,7 +248,7 @@ export class D3Component implements OnInit {
       for(let i = 0; i < this.display.length; i++) 
       { 
           // If the scanned character is an operand, add it to output string.
-          while(this.display[i] >= '0' && this.display[i] <= '9'){
+          while(this.display[i] >= '0' && this.display[i] <= '9' || this.display[i] === '.'){
             this.char2 += this.display[i];
             ++i;
           }
@@ -317,11 +316,11 @@ for(let i = 0;  i <= this.stackVal2.length; i++){
   this.stackOper.push(this.stackVal2[i]);
 }
 }
-this.display = this.stackOper.pop();
+console.log(this.stackOper[length]);
+this.display = this.stackOper[length];
       this.stackVal2 = [];
       this.stackVal= [];     
       this.stackOper =[];
-      this.dec = false;
       this.saveCalc(+this.display);
    
     }
