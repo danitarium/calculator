@@ -312,6 +312,7 @@ this.display = this.stackOper.pop();
       this.stackVal2 = [];
       this.stackVal= [];     
       this.stackOper =[];
+      this.dec = false;
       this.saveCalc(+this.display);
    
     }
