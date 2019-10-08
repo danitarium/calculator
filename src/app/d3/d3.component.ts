@@ -31,7 +31,7 @@ import { stack } from 'd3';
         animate('0.5s')
       ]),
     ]),
-    trigger('hell', [
+   trigger('hell', [
       state('open', style({
         opacity: 1,
         
@@ -40,8 +40,8 @@ import { stack } from 'd3';
 
         opacity: 1,
         backgroundImage: 'linear-gradient(orange,red,black)'
-      }))
-       transition('open => closed', [
+      })),
+      transition('open => closed', [
         animate('1s')
       ]),
       transition('closed => open', [
