@@ -48,21 +48,6 @@ import { stack } from 'd3';
         animate('0.5s')
       ]),
     ]),
-    trigger('hell2', [
-      state('open', style({
-        opacity: 1,
-        
-      })),
-      state('close', style({
-
-        opacity: 1,
-        backgroundImage: 'linear-gradient(orange,black,red)'
-      })),
-      state('closed', style({
-
-        opacity: 1,
-        backgroundImage: 'linear-gradient(orange,red,black)'
-      })),
       transition('open => close', [
         animate('1s')
       ]),
