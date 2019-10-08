@@ -40,24 +40,7 @@ import { stack } from 'd3';
 
         opacity: 1,
         backgroundImage: 'linear-gradient(orange,red,black)'
-      })),
-      transition('open => closed', [
-        animate('1s')
-      ]),
-      transition('closed => open', [
-        animate('0.5s')
-      ]),
-    ]),
-      transition('open => close', [
-        animate('1s')
-      ]),
-      transition('close => closed', [
-        animate('1s')
-      ]),
-      transition('closed => open', [
-        animate('0.5s')
-      ]),
-    ]),
+      }))
     trigger('Love', [
       state('open', style({
         opacity: 1,
